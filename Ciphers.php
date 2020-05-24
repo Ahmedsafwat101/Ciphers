@@ -5,22 +5,16 @@
 function Cipher($char,$key)
 {   //check if the character is Capital or not 
 
-	$asciiValue=ord($char);
+	$asciiValue=ord($char); //convert to number
 	
 	$var=$asciiValue+(int)$key;
-	//90=Z && 65=A
-	if($var>90)
-	{
-		$var=(($var%90)-1)+65; // rounded Substitution
-	}
+
     return chr($var);
 }
 
-
-
 function Encrypt($text,$key)
 {
-	$text=strtoupper($text);
+	//$text=strtoupper($text);
 	$chipertext="";
 	$charArray = str_split($text);
 	foreach ($charArray as $char)
@@ -33,23 +27,24 @@ function Encrypt($text,$key)
 
 function Decrypt($text,$key)
 {
-	$text=strtoupper($text);
+	//$text=strtoupper($text);
 	$plaintext="";
 	$charArray = str_split($text);
 	foreach ($charArray as $char)
 	{
-	  $plaintext.= Cipher($char,26-($key));	
-	  $x=(int)26-$key;
-	  //echo"$x<br>";
+	  $plaintext.= Cipher($char,$key*-1);	
        	  
 	}
-		return $plaintext;
-
+	return $plaintext;
 }
 
 
 
-
+echo"Sample for simple<br>";
+$x=Encrypt("ABcD123",3);
+echo"$x<br>";
+$x=Decrypt(Encrypt("ABcD123",3),3);
+echo"$x<br>";
 
 // DoubleTranspostions
 
