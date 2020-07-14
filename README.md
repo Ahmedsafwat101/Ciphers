@@ -1,2 +1,2 @@
 # Ciphers
- Decryption and Encryption PHP Ciphers (Simple Subitutions/Double Transpositions/RC4) 
+Decryption and Encryption PHP Ciphers (Simple Substitutions/Double Transpositions/RC4
